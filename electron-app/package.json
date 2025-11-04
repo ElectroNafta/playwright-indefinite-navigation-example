@@ -1,0 +1,37 @@
+{
+  "name": "electron-app",
+  "version": "1.0.0",
+  "description": "Electron app for Proton Mail minimal reproduction",
+  "author": "Proton",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron --no-sandbox .",
+    "build": "electron-builder --mac --publish=never",
+    "build:test": "SKIP_NOTARIZE=true electron-builder --mac --publish=never --config.artifactName='${productName}.${ext}'"
+  },
+  "devDependencies": {
+    "electron": "^36.9.3",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.proton.maildesktop.minimal",
+    "productName": "Proton Mail",
+    "directories": {
+      "output": "dist",
+      "buildResources": "assets"
+    },
+    "mac": {
+      "target": [
+        "dir",
+        "zip"
+      ],
+      "category": "public.app-category.productivity",
+      "hardenedRuntime": false,
+      "gatekeeperAssess": false
+    },
+    "files": [
+      "main.js",
+      "index.html"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "playwright-navigation-issue-reproduction",
+  "version": "1.0.0",
+  "description": "Minimal reproduction of Playwright navigation hang issue with Electron route interception",
+  "scripts": {
+    "install-all": "npm install && npm install --prefix ./web-app && npm install --prefix ./electron-app",
+    "playwright:install": "npx playwright install",
+    "dev": "npm run dev --prefix ./web-app",
+    "electron": "npm start --prefix ./electron-app",
+    "build:electron": "npm run build:test --prefix ./electron-app",
+    "test:electron": "npx playwright test tests/electron-app.spec.ts --ui",
+    "test:electron:skip": "PLAYWRIGHT_SKIP_NAVIGATION_CHECK=1 npx playwright test tests/electron-app.spec.ts --ui"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.53.0"
+  }
+}
